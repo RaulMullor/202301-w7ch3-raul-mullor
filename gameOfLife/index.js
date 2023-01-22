@@ -3,11 +3,15 @@ const tableGenerator = (rows, columns) => {
   for (let newRow = 0; newRow < rows; newRow++) {
     board[newRow] = [];
     for (let newColumn = 0; newColumn < columns; newColumn++) {
-      board[newRow][newColumn] = 0;
+      if (Math.random() < 0.3) {
+        board[newRow][newColumn] = 1;
+      } else board[newRow][newColumn] = 0;
     }
   }
 
   return board;
 };
 
+const generatedBoard = tableGenerator(25, 25);
+console.table(generatedBoard);
 export default tableGenerator;
