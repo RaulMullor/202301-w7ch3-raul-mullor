@@ -12,6 +12,6 @@ const tableGenerator = (rows, columns) => {
   return board;
 };
 
-const generatedBoard = tableGenerator(25, 25);
+const generatedBoard = tableGenerator(20, 20);
 console.table(generatedBoard);
 export default tableGenerator;
