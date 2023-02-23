@@ -13,7 +13,7 @@ const selectWord = () => {
   return words[randomIndex];
 };
 
-const HangmanGame = () => {
+function HangmanGame() {
   const [selectedWord, setSelectedWord] = useState(selectWord());
   const [hiddenWord, setHiddenWord] = useState(
     selectedWord.replace(/./g, "_ ")
@@ -25,6 +25,7 @@ const HangmanGame = () => {
     if (selectedLetters.includes(letter)) {
       return;
     }
+
     const letters = selectedWord.split("");
     if (letters.includes(letter)) {
       const wordWithLetter = hiddenWord.split(" ");
@@ -37,6 +38,7 @@ const HangmanGame = () => {
     } else {
       setChances(chances - 1);
     }
+
     setSelectedLetters([...selectedLetters, letter]);
   };
 
@@ -63,18 +65,26 @@ const HangmanGame = () => {
         {chances === 0 ? (
           <div>
             <p>You lost!</p>
-            <button onClick={handleRestartGame}>Play again</button>
+            <button type="button" onClick={handleRestartGame}>
+              Play again
+            </button>
           </div>
         ) : hiddenWord === selectedWord ? (
           <div>
             <p>You won!</p>
-            <button onClick={handleRestartGame}>Play again</button>
+            <button type="button" onClick={handleRestartGame}>
+              Play again
+            </button>
           </div>
         ) : (
           <div>
             <p>Select a letter:</p>
             {[..."abcdefghijklmnopqrstuvwxyz"].map((letter) => (
-              <button key={letter} onClick={() => handleLetterSelect(letter)}>
+              <button
+                key={letter}
+                type="button"
+                onClick={() => handleLetterSelect(letter)}
+              >
                 {letter}
               </button>
             ))}
@@ -83,6 +93,6 @@ const HangmanGame = () => {
       </div>
     </div>
   );
-};
+}
 
 export default HangmanGame;
