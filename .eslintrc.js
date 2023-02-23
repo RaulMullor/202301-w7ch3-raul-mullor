@@ -4,7 +4,7 @@ module.exports = {
     es2021: true,
     jest: true,
   },
-  extends: ["xo", "prettier"],
+  extends: ["xo", "xo-react", "prettier"],
   overrides: [],
   parserOptions: {
     ecmaVersion: "latest",
